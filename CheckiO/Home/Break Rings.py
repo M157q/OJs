@@ -1,3 +1,5 @@
+# http://www.checkio.org/mission/break-rings/
+
 import itertools
 
 def break_rings(rings):
