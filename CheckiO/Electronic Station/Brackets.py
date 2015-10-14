@@ -1,3 +1,5 @@
+# http://www.checkio.org/mission/brackets/
+
 def checkio(expression):
 
     brackets = {
