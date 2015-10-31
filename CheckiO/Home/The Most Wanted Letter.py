@@ -1,24 +1,13 @@
 # http://www.checkio.org/mission/most-wanted-letter/
 
-def checkio(text):
-    counted = []
-    p = ['', 0] # [char, freq]
-    for char in text.lower():
-        if char.isalpha() and char not in counted:
-            freq = text.lower().count(char)
-            if freq > p[1]:
-                p[0] = char
-                p[1] = freq
-            elif freq == p[1]:
-                if ord(char) < ord(p[0]):
-                    p[0] = char
-                    p[1] = freq
-            else:
-                pass
-            counted.append(char)
+import string
 
-    #replace this for solution
-    return p[0]
+def checkio(text):
+    text = list(filter(str.isalpha, text.lower()))
+    return max(
+        text,
+        key = lambda x: (text.count(x), -ord(x))
+    )
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
