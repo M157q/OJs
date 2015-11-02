@@ -30,7 +30,7 @@ def checkio(text):
     words = text.translate(str.maketrans(string.punctuation, ' '*len(string.punctuation))).upper().split()
     result = list(map(is_striped, words))
 
-    return result.count(True)
+    return sum(result)
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
