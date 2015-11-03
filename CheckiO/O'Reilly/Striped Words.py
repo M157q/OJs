@@ -28,7 +28,7 @@ def checkio(text):
         return True
 
     words = text.translate(str.maketrans(string.punctuation, ' '*len(string.punctuation))).upper().split()
-    result = list(map(is_striped, words))
+    result = map(is_striped, words)
 
     return sum(result)
 

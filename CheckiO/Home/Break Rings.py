@@ -6,14 +6,10 @@ def break_rings(rings):
     all_rings = set.union(*rings)
 
     for num_of_broken_rings in range(1, len(all_rings)+1):
-        for rings_to_break in itertools.combinations(all_rings,
-                                                     num_of_broken_rings):
-            rings_to_break_set = set(rings_to_break)
-
-            for pair in rings:
-                # if left rings are all seperate, problem solved.
-                if all(len(pair - rings_to_break_set) <= 1 for pair in rings):
-                    return num_of_broken_rings
+        for rings_to_break in itertools.combinations(all_rings, num_of_broken_rings):
+            # if left rings are all seperate, problem solved.
+            if all(len(pair - set(rings_to_break)) <= 1 for pair in rings):
+                return num_of_broken_rings
 
 if __name__ == '__main__':
     # These "asserts" using only for self-checking and not necessary for auto-testing
